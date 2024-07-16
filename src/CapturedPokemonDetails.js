@@ -80,7 +80,11 @@ export default function CapturedPokemonDetails({ onBack }) {
       </div>
       <div>
         <button className="BallButton" onClick={handleRelease}>
-          <img src="./media/open_pokeball.png" alt="Release" className="Ball" />
+          <img
+            src={`${process.env.PUBLIC_URL}/media/open_pokeball.png`}
+            alt="Release"
+            className="Ball"
+          />
           <span className="ballText">Release</span>
         </button>
       </div>
