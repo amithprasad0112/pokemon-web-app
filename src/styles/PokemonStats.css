@@ -1,0 +1,24 @@
+.stat-hp{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.stat-attack{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.stat-defense{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.stat-special-attack{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.stat-special-defense{
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.stat-speed{
+    text-transform: uppercase;
+    font-weight:bold;
+}

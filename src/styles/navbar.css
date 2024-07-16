@@ -1,0 +1,75 @@
+.navbar {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px;
+  }
+  
+  /* Style the container within the navbar */
+  .navbar-container {
+    width: 100%;
+    max-width: 1500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  /* Style the logo */
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .img-logo {
+    height: 50px; /* Adjust the size as needed */
+  }
+  
+  /* Style the navbar menu */
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-items {
+    margin-left: 20px;
+    padding: 0.6rem 1rem;
+  }
+
+  .navbar-items:hover{
+    background-color: grey;
+    transition: 0.5s ease;
+  }
+  
+  /* Style the links */
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links:hover {
+    color: white; /* Adjust the hover color as needed */
+  }
+  
+  /* Style the images within the items */
+  .img-items {
+    height: 50px; /* Adjust the size as needed */
+    
+    
+    
+  }
+  
+  /* Style the text within the items */
+  .navbar-text {
+    margin: 0;
+    font-size: 13px;
+  }
+  
