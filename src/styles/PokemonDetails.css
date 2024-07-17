@@ -166,8 +166,16 @@
     margin-bottom: 4px;
   }
 
+  .BallButton {
+    padding: 10px;
+  }
+
   .Ball {
-    width: 20px;
-    height: 20px;
+    width: 60px; 
+    height: 60px;
+  }
+
+  .BallText {
+    font-size: 16px; 
   }
 }
