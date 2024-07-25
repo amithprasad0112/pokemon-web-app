@@ -30,7 +30,7 @@ export default function CapturedPokemonDetails({ onBack }) {
           <img
             src={
               pokemon?.sprites?.other?.dream_world?.front_default ||
-              "./media/default-image.png"
+              pokemon?.sprites?.front_default
             }
             alt={pokemon?.name || "Pokemon"}
             className="header-image"
