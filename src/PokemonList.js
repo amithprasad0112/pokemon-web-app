@@ -35,8 +35,9 @@ export default function PokemonList({ onPokemonSelect }) {
 
   const filteredPokemons = selectedType
     ? pokemons.filter((pokemon) => {
-        return pokemon.types.some(
-          (typeObj) => typeObj.type.name === selectedType
+        return (
+          pokemon.types &&
+          pokemon.types.some((typeObj) => typeObj.type.name === selectedType)
         );
       })
     : pokemons;

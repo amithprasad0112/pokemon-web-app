@@ -21,6 +21,12 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
   .card-image {
     width: 100%;
@@ -30,10 +36,12 @@
   }
   
   .card-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    text-transform: capitalize; /* Capitalize the first letter of each word */
-    margin-top: 8px; /* Add some space between the image and the title */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
   }
   
   .cards-owned-text {
