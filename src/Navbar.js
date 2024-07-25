@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link className="navbar-logo" to="/">
           <img
-            src="./media/nav-logo.svg"
+            src={`${process.env.PUBLIC_URL}/media/nav-logo.svg`}
             alt="Pokemon-Logo"
             className="img-logo"
           />
@@ -17,7 +17,7 @@ const Navbar = () => {
           <li className="navbar-items">
             <Link to="/" className="navbar-links">
               <img
-                src="./media/compass.png"
+                src={`${process.env.PUBLIC_URL}/media/compass.png`}
                 alt="Explore"
                 className="img-items"
               />
@@ -27,7 +27,7 @@ const Navbar = () => {
           <li className="navbar-items">
             <Link to="/captured-pokemons-list" className="navbar-links">
               <img
-                src="./media/backpack.png"
+                src={`${process.env.PUBLIC_URL}/media/backpack.png`}
                 alt="BackPack"
                 className="img-items"
               />

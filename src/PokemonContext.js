@@ -7,32 +7,36 @@ export function PokemonProvider({ children }) {
   const [pokemons, setPokemons] = useState([]);
   const [capturedPokemons, setCapturedPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [offset, setOffset] = useState(0);
   const [ownedCount, setOwnedCount] = useState({});
-  const limit = 20;
 
-  const fetchPokemons = async (offset = 0, limit = 20) => {
+  const fetchPokemons = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-      );
-      const results = await Promise.all(
-        response.data.results.map(async (pokemon) => {
-          const pokemonDetails = await axios.get(pokemon.url);
-          return pokemonDetails.data;
-        })
-      );
+      const batchSize = 200;
+      let offset = 0;
+      let allPokemons = [];
 
-      setPokemons((prevPokemons) => [
-        ...prevPokemons,
-        ...results.filter(
-          (newPokemon) =>
-            !prevPokemons.some(
-              (existingPokemon) => existingPokemon.id === newPokemon.id
-            )
-        ),
-      ]);
+      while (true) {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${batchSize}`
+        );
+
+        const results = await Promise.all(
+          response.data.results.map(async (pokemon) => {
+            const pokemonDetails = await axios.get(pokemon.url);
+            return pokemonDetails.data;
+          })
+        );
+
+        if (results.length === 0) {
+          break;
+        }
+
+        allPokemons = [...allPokemons, ...results];
+        offset += batchSize;
+      }
+
+      setPokemons(allPokemons);
 
       setLoading(false);
     } catch (error) {
@@ -42,8 +46,8 @@ export function PokemonProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchPokemons(offset, limit);
-  }, [offset]);
+    fetchPokemons();
+  }, []);
 
   const capturePokemon = (pokemon) => {
     setCapturedPokemons((prevCaptured) => {
@@ -86,10 +90,6 @@ export function PokemonProvider({ children }) {
   const providerValue = {
     pokemons,
     loading,
-    fetchPokemons,
-    offset,
-    setOffset,
-    limit,
     capturedPokemons,
     capturePokemon,
     ownedCount,
